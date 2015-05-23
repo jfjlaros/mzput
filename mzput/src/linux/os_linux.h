@@ -1,4 +1,4 @@
-#include <asm/io.h>   // outb
+#include <sys/io.h>   // outb
 #include <sys/perm.h> // Just to remove a warning (iopl).
 
 // Defenitions.
