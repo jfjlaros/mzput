@@ -1,0 +1,26 @@
+CC = gcc
+CFLAGS = -Wall -O3 -DLINUX
+
+EXEC = mzput
+MAIN = mzput.c
+OBJS = physical.o methods.o args.o os_linux.o
+
+all: $(EXEC)
+
+release: all
+	cp mzput linux/release
+
+os_linux.o:
+	$(CC) $(CFLAGS) -c linux/os_linux.c
+
+.cc.o:
+	$(CC) $(CFLAGS) -c $<
+	
+$(EXEC): $(MAIN) $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+clean:
+	rm -f *.o core
+
+realclean: clean
+	rm -f $(EXEC)

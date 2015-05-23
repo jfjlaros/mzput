@@ -1,0 +1,30 @@
+CC = cl
+CFLAGS = /GX /O2 /DWINDOWS /nologo
+
+EXEC = mzput.exe
+MAIN = mzput.c
+OBJS = physical.obj methods.obj args.obj os_windows.obj ring0.obj 
+LIBS = w32\CALLGATE.LIB
+
+all: $(EXEC)
+
+release: all
+	copy mzput.exe w32\release
+
+ring0.obj:
+	ml /nologo /coff /c w32\ring0.asm
+
+os_windows.obj:
+	$(CC) $(CFLAGS) /c w32\os_windows.c
+
+.cc.o:
+	$(CC) $(CFLAGS) /c $<
+	
+$(EXEC): $(MAIN) $(OBJS)
+	$(CC) $(CFLAGS) /o $@ $(MAIN) $(OBJS) $(LIBS)
+
+clean:
+	del *.obj
+
+realclean: clean
+	del $(EXEC)
