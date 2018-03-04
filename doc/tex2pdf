@@ -1,0 +1,16 @@
+#!/bin/sh
+
+cat << EOF > temp.tex
+\documentstyle{article}
+\linethickness{1pt}
+
+\begin{document}
+
+\input{${1}}
+
+\end{document}
+EOF
+
+pdflatex temp.tex
+mv temp.pdf "$(basename ${1} '.tex').pdf"
+rm temp.*

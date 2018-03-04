@@ -1,122 +1,208 @@
-# MZPut
-## Overview
-The following section describes a simple cable and the usage of the software to
-transfer files from your PC to the data recorder or to the MZ directly.
+# Introduction
+This document covers a simple data cable and the software to transfer MZF
+images from a PC directly to an MZ. Alternatively, the PC can be connected to
+the data recorder of the MZ, a C64 datasette or other data recorders to
+transfer MZF images to cassette.
 
-You can use the data recorder of your MZ, a C64 datassette, or other data
-recorders at your PC to save your MZ-programs.
-
-The software is ready for download here and is to be run under Win NT-systems
-(NT4, W2k, XP) or Linux. The usage for other Win-systems isn't in progress. May
-be, if you ask the author and if it is of major interest to run it under Win
-9x/ME, he also will put such a program here?
+The software is tested on Linux and Windows (NT4, W2k, XP) systems.
 
 
-## Cable
-### Connecting the data recorder directly to the PC
-The hardware needed is very simple. At the PC site you need a parallel male
-plug (SUB-D, 25 pins) to connect the data recorder to your LPT port. At the
-site of your MZ-data recorder you need a male plug to connect this plug to your
-data recorder female plug. If you use a C64 datassette or other recorders use
-the plug needed. The two plugs must be wired as follows:
+## Background
+This project builds upon the
+[MZF2WAV](https://github.com/jfjlaros/mzf2wav) utility, which is used to
+convert an MZF image to a file that can be recorded on a cassette. Since
+cassettes are getting outdated rapidly, and because ordinary sound cards can
+not be used for speeds exceeding twice that of the normal transfer speed, the
+parallel port is used for this project instead.
 
-| SUB-D pin # |     Signal | MZ-1T01/MZ-1T04 pin # | Signal |
-|:-----------:|:--         |:---------------------:|:--     |
-|           3 | data bit 1 |                     7 |  Write |
-|       18-25 |        GND |                     9 |  GND/E |
-|           - |          - |                     6 |    +5V |
-
-E.g., you have to connect pin 3 at the PC site to pin 7 at the MZ's / data
-recorder's site.
-
-You must use an external power supply (5V / min. 0.3A), alternatively you can
-use the power available by one of the joystick connectors at the rear of the MZ
-(available only for the 700 and 800 series; for the pin descriptions take a
-look into the Service Manual available in my Download Sections). Connect the
-power to the pins 9 (-5V) and 6 (+5V) at the MZ's / data recorder's site (see
-table above). The power supply is needed to supply your data recorder because
-the PC's LPT port cannot do this.
-
-Please wait for the pin descriptions for the MZ-80K/80A/80B or try yourself
-(see the Download sections for Service Manuals).
-
-### Connecting the MZ directly to the PC
-If you use this method you do not have to store a program on tape and next to
-read it from tape. Your MZ-file will be directly loaded into the MZ's memory.
-This is the quickest method, but you do not have a copy of the program for
-later use.
-
-Using this method you have to connect the MZ to the PC in a similar way as
-described above. The difference is, that you connect a plug directly with the
-data recorder's plug on the MZ's motherboard by removing the data recorder's
-plug (if any) or alternative directly with the external recorder "READ" cinch
-plug at the rear of the MZ. If you decide to use the MZ-700/800 external READ
-cinch plug, you need a common cinch plug (male). Read the author's
-documentation file about how to make this very simple connection by a cinch
-plug.
-
-The MZ-80K/MZ-80A/MZ-80B do not have such an external connector. For these
-models you always have to make an internal connection by a connector or by
-soldering the wires directly (depending on the model you have).
-
-You do not need an external power supply if you connect the MZ directly to the
-PC. A connection to +5V isn't required.
-
-If you want to use the READ plug (you do not make a direct connection to the
-motherboard) and you're using one of the following models 721, 731 or 821 then
-you also have to make a simple change which is described here. These models
-need to be prepared. The author of this interface has put also an information
-in his documentation file about the necessary preparation for these MZ-models.
-No changes are necessary if you connect directly with the MZ's motherboard.
-
-Please wait for the pin description of the MZ-80K/80A/80B or try yourself
-(see the Download sections of Service Manuals).
+The *turbo loader* is from the related to the DOS utility
+[TransManager](https://web.archive.org/web/20040218154731/http://mzunity.wz.cz/old/Hardware.htm).
 
 
-## Software
-### Installing the software
-Unzip all files into their given directories.
+# Hardware configuration
+## Enable the external tape interface
+For the MZ-711 and MZ-811, this step can be omitted. For other models, i.e.,
+those with an internal data recorder or a quickdisk, the external tape
+interface needs to be [enabled](https://sharpmz.org/mz-700/filetrans.htm), the
+reverse of the operation described
+[here](https://www.sharpmz.org/mz-700/usetape3.htm). This is done by
+disconnecting the data recorder or quickdisk from connector P-12 and by
+connecting the *jumper plug*. This plug will wire the read and write signals to
+the external connectors and it will suppress the "Press play" message.
 
-- The software is freeware and the source code is included to enable you to
-  change the program for your own purposes.
+A jumper plug can be made from a plug similar to the one the data recorder and
+quickdisk use.
 
-All files (`callgate.sys` and `callgate.dll`) must reside in the directory
-where the `mzput.exe` resides or they can reside in the root directory (`C:`).
+![Jumper Plug](doc/jumper_plug.svg)
 
-### Operation
-The software is to be run with administrator rights and privileges under Win
-NT-systems (NT4, W2k, XP) or Linux.
+The wires are connected as follows:
 
-Make ready your MZ or data recorder for the data transfer as described next. Do
-it now - you have no chance to do it later!
+| MZ | MZ | signal
+|----|----|:--
+|  1 |  7 | write
+|  2 |  8 | read
+|  5 |  9 | sense
 
-If you use a data recorder then position the tape correctly and push the REC
+These wires can also be soldered on the plug and optionally, the sense signal
+can be wired to an external switch.
+
+The MZ-80K/MZ-80A/MZ-80B do not have external connectors. For these models an
+internal connection must be made.
+
+## Transfer cable
+To wire an MZ to a PC, the following cable is used.
+
+![Transfer cable](doc/transfer_cable.svg)
+
+Wiring is as follows:
+
+|    PC |           MZ | signal
+|-------|           --:|:--
+|     3 |     read tip | read
+|    10 |    write tip | write
+| 18-25 | both sleeves | ground
+
+
+## Alternative setup
+To connect the data recorder to a PC, the following wiring should be used:
+
+|    PC | Data recorder | signal
+|-------|---------------|:--
+|     3 |             7 | read
+|    10 |             8 | write
+| 18-25 |             9 | ground
+|     9 |             4 | motor on
+|     - |             6 | +5V
+
+The +5V must be provided by an external power supply (5V / min. 0.3A).
+
+# Installation
+## Binaries
+The binaries can be found
+[here](https://sharpmz.org/download/mzput_0.1_beta.zip). After unzipping this
+archive, the binaries for Linux can be found in `src/linux/release`, those for
+Windows can be found in `src/w32/release`.
+
+## From source
+Retrieve the source code with Git.
+
+    git clone https://github.com/jfjlaros/mzput.git
+
+To compile for Linux:
+
+    cd mzput/src/linux
+    sh build.sh
+
+For Windows, use:
+
+    cd mzput\src\w32
+    build.bat
+
+The binary will be placed in the `release` subdirectory.
+
+Notes for Windows users:
+
+- This program uses the
+  [callgate](https://web.archive.org/web/20121103010240/http://www.sonic.net:80/~undoc/ntcallgate.html)
+  mechanism for real time operations. Since this mechanism is also used by
+  viruses, the virusscanner may need to be disabled.
+- The files `callgate.sys` and `callgate.dll` must reside in the same folder as
+  `mzput.exe`, or they can be installed in one of the folders in the system
+  path.
+
+
+# Usage
+This program must be run as root or Administrator. This is because of some
+low-level routines that are used to enable real time operations in multitasking
+systems like Linux or Windows.
+
+When transferring directly to an MZ, first run the loader program (e.g., type
+`L` or `C` in the MZ-monitor program).
+
+When using a data recorder, first position the tape correctly and push the REC
 and PLAY buttons.
 
-If you use the MZ then run your loader program (e.g., type `L` or `C` in the
-MZ-monitor program).
+On the PC, transfer an MZF image named `image.mzf`, using the following
+command:
 
-Execute mzput and use the optional options described in the author's
-documentation file. For example, if you want to do a "normal" data transfer
-(i.e., normal speed, no turbo modes, really like the 1200 baud transfer of the
-MZ), then use the following options:
+    mzput image.mzf
 
-    mzput.exe -c
+The program recognises the following options:
 
-`-c` means that the conventional mode of 1200 baud is to be used by mzput.
+| option | description
+|--------|:--
+|   `-i` | sets initial speed mode (0, 1, 2, 3 or 4), default = 0.
+|   `-t` | sets turbo speed mode (0, 1, 2, 3 or 4), default = 3.
+|   `-1` | sets correction for fast initial mode (-50 to 50).
+|   `-2` | sets correction for fast turbo mode (-50 to 50).
+|   `-c` | sets conventional sending mode.
+|   `-s` | sets fast sending mode.
+|   `-w` | sets turbo sending mode (default).
+|   `-p` | reverse polarity.
+|   `-v` | displays version information.
+|   `-l` | displays the license.
+|   `-d` | displays more info and asks for confirmation before starting.
 
-- Don't be confused: Your system is locked while transferring data. It will be
-  unlocked when the data transfer finishes. This means, you cannot do anything
-  more in this time. Even the mouse interrupt is suppressed. The lock is
-  necessary because any interrupt could falsify the data written.
-- It may be that you'll get the following error message under W2k: Couldn't
-  release I/O privilege level. Ignore the message. The data transfer should be
-  done correctly. This version is a beta test, and, it may be, that there is a
-  bug in your W2k system version SP3.
-- The author and I would be very thankful if you send him your error messages,
-  any problems, and any comments for this beta version. Please contact him, if
-  you want to help.
+Note that during transfer, the PC will become completely unresponsive. This is
+because all interrupts are disabled to allow for real time operations. A
+running transfer can be aborted by pressing the `ESC` key.
 
-### Download
-Download the beta test version for NT-systems and Linux (130 kb). The source
-code and the documentation are included.
+It is recommended to *sync* the hard disks before each transfer and to install
+[NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol) (or something
+similar). Disabling interrupts also means that the timer interrupt is disabled,
+so the system clock will lag behind after each transfer.
+
+Note for Windows users, it is recommended to make a *system restore point* and
+copy the data to a directory inside the windows tree (e.g.,
+`C:\WINDOWS\Restore`) this will enable you to restore the registry in the event
+of a crash.
+
+## Operation modes
+### Fast sending mode
+This is the easiest way to transfer a file. In this mode the long gap (a tape
+marker) is 4000 pulses and the short gap is 5000 pulses. Both the header and
+the MZF image body are transferred once.
+
+### Conventional sending mode
+This is the safest (and slowest) way to transfer an image, everything is done
+according to the Sharp MZ series conventions: A long gap is 22000 pulses, a
+short gap is 11000 pulses. The header and body are transferred twice to allow
+for errors.
+
+### Turbo sending mode
+In this mode, the turbo loader from the TransManager is transferred using the
+fast sending mode, this turbo loader enables the MZ to operate with higher
+transfer speeds. The MZF image is then sent using fast sending mode, but now at
+a higher speed.
+
+The speed at which the turbo loader is transferred is controlled with the `-i`
+option, the speed at which the MZF image is sent is controlled with the `-t`
+option.
+
+## Speeds
+Apart from increasing the pulse frequency, the waveforms themselves can be
+altered in order to increase speed. The "fast waveform" was found by minimising
+the high and the low states of the pulses independently.
+
+At this time, five speeds are implemented:
+
+- Speed 0: normal speed with normal waveforms.
+- Speed 1: normal speed with fast waveforms.
+- Speed 2: 2x speed with normal waveforms.
+- Speed 3: 3x speed with normal waveforms.
+- Speed 4: 3x speed with fast waveforms.
+
+These speeds can be set for all operation modes, although some combinations may
+not work. The most commonly used speeds are: speed 0 or 1 for initial speed
+mode and speed 2 or higher for turbo speed mode.
+
+If multiple images are transferred, using speed 3 or 4 with fast sending mode
+may be preferred.
+
+### Corrections
+Because the waveforms used by speeds 1 and 4 may not always work, two
+correction factors for these speeds are implemented, controlled with the `-1`
+and `-2` options.
+
+## Polarity
+The polarity can be revered with the `-p` option.
