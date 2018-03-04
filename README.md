@@ -43,8 +43,8 @@ The wires are connected as follows:
 |  2 |  8 | read
 |  5 |  9 | sense
 
-These wires can also be soldered on the plug and optionally, the sense signal
-can be wired to an external switch.
+These wires can also be soldered directly on the connector and optionally, the
+sense signal can be wired to an external switch.
 
 The MZ-80K/MZ-80A/MZ-80B do not have external connectors. For these models an
 internal connection must be made.
