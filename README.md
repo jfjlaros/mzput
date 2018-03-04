@@ -1,4 +1,4 @@
-# Introduction
+# MZPut
 This document covers a simple data cable and the software to transfer MZF
 images from a PC directly to an MZ. Alternatively, the PC can be connected to
 the data recorder of the MZ, a C64 datasette or other data recorders to
@@ -19,8 +19,8 @@ The *turbo loader* is from the related to the DOS utility
 [TransManager](https://web.archive.org/web/20040218154731/http://mzunity.wz.cz/old/Hardware.htm).
 
 
-# Hardware configuration
-## Enable the external tape interface
+## Hardware configuration
+### Enable the external tape interface
 For the MZ-711 and MZ-811, this step can be omitted. For other models, i.e.,
 those with an internal data recorder or a quickdisk, the external tape
 interface needs to be [enabled](https://sharpmz.org/mz-700/filetrans.htm), the
@@ -49,7 +49,7 @@ can be wired to an external switch.
 The MZ-80K/MZ-80A/MZ-80B do not have external connectors. For these models an
 internal connection must be made.
 
-## Transfer cable
+### Transfer cable
 To wire an MZ to a PC, the following cable is used.
 
 ![Transfer cable](doc/transfer_cable.svg)
@@ -63,7 +63,7 @@ Wiring is as follows:
 | 18-25 | both sleeves | ground
 
 
-## Alternative setup
+### Alternative setup
 To connect the data recorder to a PC, the following wiring should be used:
 
 |    PC | Data recorder | signal
@@ -76,14 +76,14 @@ To connect the data recorder to a PC, the following wiring should be used:
 
 The +5V must be provided by an external power supply (5V / min. 0.3A).
 
-# Installation
-## Binaries
+## Installation
+### Binaries
 The binaries can be found
 [here](https://sharpmz.org/download/mzput_0.1_beta.zip). After unzipping this
 archive, the binaries for Linux can be found in `src/linux/release`, those for
 Windows can be found in `src/w32/release`.
 
-## From source
+### From source
 Retrieve the source code with Git.
 
     git clone https://github.com/jfjlaros/mzput.git
@@ -111,7 +111,7 @@ Notes for Windows users:
   path.
 
 
-# Usage
+## Usage
 This program must be run as root or Administrator. This is because of some
 low-level routines that are used to enable real time operations in multitasking
 systems like Linux or Windows.
@@ -157,19 +157,19 @@ copy the data to a directory inside the windows tree (e.g.,
 `C:\WINDOWS\Restore`) this will enable you to restore the registry in the event
 of a crash.
 
-## Operation modes
-### Fast sending mode
+### Operation modes
+#### Fast sending mode
 This is the easiest way to transfer a file. In this mode the long gap (a tape
 marker) is 4000 pulses and the short gap is 5000 pulses. Both the header and
 the MZF image body are transferred once.
 
-### Conventional sending mode
+#### Conventional sending mode
 This is the safest (and slowest) way to transfer an image, everything is done
 according to the Sharp MZ series conventions: A long gap is 22000 pulses, a
 short gap is 11000 pulses. The header and body are transferred twice to allow
 for errors.
 
-### Turbo sending mode
+#### Turbo sending mode
 In this mode, the turbo loader from the TransManager is transferred using the
 fast sending mode, this turbo loader enables the MZ to operate with higher
 transfer speeds. The MZF image is then sent using fast sending mode, but now at
@@ -179,7 +179,7 @@ The speed at which the turbo loader is transferred is controlled with the `-i`
 option, the speed at which the MZF image is sent is controlled with the `-t`
 option.
 
-## Speeds
+### Speeds
 Apart from increasing the pulse frequency, the waveforms themselves can be
 altered in order to increase speed. The "fast waveform" was found by minimising
 the high and the low states of the pulses independently.
@@ -199,10 +199,10 @@ mode and speed 2 or higher for turbo speed mode.
 If multiple images are transferred, using speed 3 or 4 with fast sending mode
 may be preferred.
 
-### Corrections
+#### Corrections
 Because the waveforms used by speeds 1 and 4 may not always work, two
 correction factors for these speeds are implemented, controlled with the `-1`
 and `-2` options.
 
-## Polarity
+### Polarity
 The polarity can be revered with the `-p` option.
