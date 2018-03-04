@@ -82,7 +82,7 @@ The +5V must be provided by an external power supply (5V / min. 0.3A).
 The binaries can be found
 [here](https://sharpmz.org/download/mzput_0.1_beta.zip). After unzipping this
 archive, the binaries for Linux can be found in `src/linux/release`, those for
-Windows can be found in `src/w32/release`.
+Windows can be found in `src\w32\release`.
 
 ### From source
 Retrieve the source code with Git.
