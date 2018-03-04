@@ -76,6 +76,7 @@ To connect the data recorder to a PC, the following wiring should be used:
 
 The +5V must be provided by an external power supply (5V / min. 0.3A).
 
+
 ## Installation
 ### Binaries
 The binaries can be found
