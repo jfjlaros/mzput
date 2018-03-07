@@ -207,3 +207,12 @@ and `-2` options.
 
 ### Polarity
 The polarity can be revered with the `-p` option.
+
+
+## Acknowledgements
+The author would like to acknowledge Karl-Heinz Mau for:
+
+- His help with wiring the jumper plug.
+- Suggesting to make a Windows version of the program.
+- Testing the Windows programs and giving feedback.
+- [Hosting](https://www.sharpmz.org/mzput.htm) the project.
