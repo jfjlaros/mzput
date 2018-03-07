@@ -171,10 +171,9 @@ short gap is 11000 pulses. The header and body are transferred twice to allow
 for errors.
 
 #### Turbo sending mode
-In this mode, the turbo loader from the TransManager is transferred using the
-fast sending mode, this turbo loader enables the MZ to operate with higher
-transfer speeds. The MZF image is then sent using fast sending mode, but now at
-a higher speed.
+In this mode, the turbo loader is transferred using fast sending mode, this
+turbo loader enables the MZ to operate at higher transfer speeds. The MZF image
+is then sent using fast sending mode, but now at a higher speed.
 
 The speed at which the turbo loader is transferred is controlled with the `-i`
 option, the speed at which the MZF image is sent is controlled with the `-t`
