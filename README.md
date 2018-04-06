@@ -49,6 +49,10 @@ sense signal can be wired to an external switch.
 The MZ-80K/MZ-80A/MZ-80B do not have external connectors. For these models an
 internal connection must be made.
 
+Also see an
+[instruction video](https://www.youtube.com/watch?v=iwD3-5ENyE8&t=86) made by
+Ricky El-Qasem on this subject.
+
 ### Transfer cable
 To wire an MZ to a PC, the following cable is used.
 
