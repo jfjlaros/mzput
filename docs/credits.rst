@@ -1,6 +1,8 @@
 Contributors
 ============
 
+Original author, maintainer: Jeroen F.J. Laros.
+
 The author would like to acknowledge Karl-Heinz Mau for:
 
 -  His help with wiring the jumper plug.
