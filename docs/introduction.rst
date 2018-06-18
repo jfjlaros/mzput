@@ -1,4 +1,4 @@
-Introdcution
+Introduction
 ============
 
 This project builds upon the MZF2WAV_ utility, which is used to convert an MZF
