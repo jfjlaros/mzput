@@ -99,11 +99,11 @@ the high and the low states of the pulses independently.
 
 At this time, five speeds are implemented:
 
--  Speed 0: normal speed with normal waveforms.
--  Speed 1: normal speed with fast waveforms.
--  Speed 2: 2x speed with normal waveforms.
--  Speed 3: 3x speed with normal waveforms.
--  Speed 4: 3x speed with fast waveforms.
+- Speed 0: normal speed with normal waveforms.
+- Speed 1: normal speed with fast waveforms.
+- Speed 2: 2x speed with normal waveforms.
+- Speed 3: 3x speed with normal waveforms.
+- Speed 4: 3x speed with fast waveforms.
 
 These speeds can be set for all operation modes, although some combinations may
 not work. The most commonly used speeds are: speed 0 or 1 for initial speed

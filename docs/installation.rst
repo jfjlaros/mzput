@@ -126,12 +126,12 @@ The binary will be placed in the ``release`` subdirectory.
 
 Notes for Windows users:
 
--  This program uses the callgate_ mechanism for real time operations. Since
-   this mechanism is also used by viruses, the virusscanner may need to be
-   disabled.
--  The files ``callgate.sys`` and ``callgate.dll`` must reside in the same
-   folder as ``mzput.exe``, or they can be installed in one of the folders in
-   the system path.
+- This program uses the callgate_ mechanism for real time operations. Since
+  this mechanism is also used by viruses, the virusscanner may need to be
+  disabled.
+- The files ``callgate.sys`` and ``callgate.dll`` must reside in the same
+  folder as ``mzput.exe``, or they can be installed in one of the folders in
+  the system path.
 
 
 .. _interface: https://sharpmz.org/mz-700/filetrans.htm
