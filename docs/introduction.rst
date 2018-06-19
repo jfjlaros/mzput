@@ -7,7 +7,7 @@ outdated rapidly, and because ordinary sound cards can not be used for speeds
 exceeding twice that of the normal transfer speed, the parallel port is used
 for this project instead.
 
-The *turbo loader* is from the related to the DOS utility TransManager_.
+The *turbo loader* is from the related DOS utility TransManager_.
 
 
 .. _MZF2WAV: https://github.com/jfjlaros/mzf2wav
