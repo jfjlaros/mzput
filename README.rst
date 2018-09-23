@@ -11,4 +11,4 @@ The software is tested on Linux and Windows (NT4, W2k, XP) systems.
 Please see ReadTheDocs_ for the latest documentation.
 
 
-.. _ReadTheDocs: http://mzput.readthedocs.io/en/latest/index.html
+.. _ReadTheDocs: https://mzput.readthedocs.io/en/latest/index.html

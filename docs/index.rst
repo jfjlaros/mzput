@@ -1,4 +1,4 @@
-.. doc_test documentation.
+.. mzput documentation.
 
 .. include:: ../README.rst
 

@@ -35,7 +35,7 @@ Under Windows 95 I converted a few MZF files to WAV with the Java program I
 found and closely looked at the output. After a few hours of staring at these
 files, I saw some patterns emerging. Next I wrote a small C program which did
 exactly the same thing as the Java program. Then I found the fantastic website:
-www.sharpmz.org, which would have spared me a few hours of staring (the only
+sharpmz.org, which would have spared me a few hours of staring (the only
 thing I didn't find there is that each byte is accompanied by a long pulse).
 At this site I found how the MZ stores it's information on tape. This is
 significantly different from the way I was using, so I extended my program to
@@ -79,12 +79,12 @@ I found didn't help me either. After some investigation I concluded that the
 program was written for the MZ-711 or 811, on which the external ports are 
 enabled. I've got an MZ-731 and an MZ-821 with a quickdisk. So I needed to 
 convert my MZ-821 to an MZ-811. At this page: \\
-http://www.sharpmz.org/mz-700/usetape3.htm which is a page about upgrading 
-your MZ-711 to an MZ-721 something is mentioned about a 'jumper plug', which,
-if removed disables the external outlets and enables the sense signal, which
-is used to display the message: 'Press play'. So now I needed to know how
-this plug was wired. I contacted Karl-Heinz Mau \cite{MZ} (the owner of 
-sharpmz.org)
+https://web.archive.org/web/20170831235523/http://www.sharpmz.org/mz-700/usetape3.htm
+which is a page about upgrading your MZ-711 to an MZ-721 something is mentioned
+about a 'jumper plug', which, if removed disables the external outlets and
+enables the sense signal, which is used to display the message: 'Press play'.
+So now I needed to know how this plug was wired. I contacted Karl-Heinz Mau
+\cite{MZ} (the owner of sharpmz.org)
 and asked him about the plug. This really nice guy was able to tell me how 
 two of the three wires should be wired, but I knew there still was the problem
 of the sense signal. If I would only short two wires the MZ would still ask
@@ -310,23 +310,23 @@ responsible for any damage or data loss as a result of using this program.
 \begin{thebibliography}{XX}
 \bibitem{TM} The turbo loader was copied from Transmanager, which itself is 
              based on work by Miroslav Nemecek. You can download the software 
-             from: http://mzunity.wz.cz/old/Hardware.htm 
+             from: https://web.archive.org/web/20040218154731/http://mzunity.wz.cz:80/old/Hardware.htm 
 \bibitem{CG} The callgate mechanism used under w32 is written by Prasad Dabak, 
              Sandeep Phadke and Milind Borate. You can find it at: 
-             http://www.sonic.net/\~{}undoc/ntcallgate.html 
+             https://web.archive.org/web/20121103010240/http://www.sonic.net:80/\~{}undoc/ntcallgate.html 
 \bibitem{MZ} Additional information about the MZ hardware was provided by 
              Karl-Heinz Mau.  He also stimulated me to write a w32 version. 
-             See: http://www.sharpmz.org/index.html for almost everything 
+             See: https://web.archive.org/web/20180421121719/https://sharpmz.org/ for almost everything 
              about the Sharp series.
 \bibitem{SRP} More on creating restore points and restoring from those points:
          198.173.130.251/clients/library.nsf/0/8da276c39480a06987256d00008381aa
-         or: http://www.tek-tips.com/gfaqs.cfm/lev2/67/lev3/70/pid/779/fid/3434
+         or: https://web.archive.org/web/20040618213332/http://www.tek-tips.com/gfaqs.cfm/lev2/67/lev3/70/pid/779/fid/3434
 \bibitem{SNC} The sync executable can be downloaded from the following site:
-              http://www.sysinternals.com/ntw2k/source/misc.shtml\#sync
+              https://web.archive.org/web/20050531082128/http://www.sysinternals.com/ntw2k/source/misc.shtml/#sync
 \bibitem{M2W} Mzf2wav (also written by me) can be downloaded from this site:
-              http://www.sharpmz.org/mzfdisass.htm
+              https://web.archive.org/web/20170831235526/http://www.sharpmz.org/mzput.htm
 \bibitem{MZD} Mzfdisas (also written by me) can be downloaded from this site:
-              http://www.sharpmz.org/mzf2wav.htm
+              https://web.archive.org/web/20170831235457/http://www.sharpmz.org/mzfdisass.htm
 \end{thebibliography}
 
 \end{document}

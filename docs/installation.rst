@@ -134,8 +134,8 @@ Notes for Windows users:
   the system path.
 
 
-.. _interface: https://sharpmz.org/mz-700/filetrans.htm
-.. _reverse: https://www.sharpmz.org/mz-700/usetape3.htm
+.. _interface: https://web.archive.org/web/20170831235447/http://www.sharpmz.org/mz-700/filetrans.htm
+.. _reverse: https://web.archive.org/web/20170831235523/http://www.sharpmz.org/mz-700/usetape3.htm
 .. _instruction video: https://www.youtube.com/watch?v=iwD3-5ENyE8&t=86
-.. _this archive: https://sharpmz.org/download/mzput_0.1_beta.zip
+.. _this archive: https://web.archive.org/web/20150926202647/http://www.sharpmz.org/download/mzput_0.1_beta.zip
 .. _callgate: https://web.archive.org/web/20121103010240/http://www.sonic.net:80/~undoc/ntcallgate.html

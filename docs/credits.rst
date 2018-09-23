@@ -15,5 +15,5 @@ And Ricky El-Qasem for:
 - His `instruction video`_ for making a jumper plug.
 
 
-.. _Hosting: https://www.sharpmz.org/mzput.htm
+.. _Hosting: https://web.archive.org/web/20170831235526/http://www.sharpmz.org/mzput.htm
 .. _instruction video: https://www.youtube.com/watch?v=iwD3-5ENyE8&t=86
